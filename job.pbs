@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#PBS -N stream
+#PBS -q dssc_gpu
+#PBS -l mem=1000mb
+#PBS -l nodes=2:ppn=48
+
+#PBS -l walltime=00:360:00
+
+module load gnu
+module load numactl
+
+cd $PBS_O_WORKDIR 
+for i in {1..24}
+do
+
+	OMP_NUM_THREADS=$i numactl --cpunodebind=0 --membind=0,1 ./stream-omp >> result/stream01.csv
+	OMP_NUM_THREADS=$i numactl --cpunodebind=0 --membind=0,0 ./stream-omp >>result/stream00.csv
+	OMP_NUM_THREADS=$i numactl --cpunodebind=0 --membind=1,0 ./stream-omp >>result/stream10.csv
+	OMP_NUM_THREADs=$i numactl --cpunodebind=0 --membind=1,1 ./stream-omp >>result/stream11.csv
+done
+exit
