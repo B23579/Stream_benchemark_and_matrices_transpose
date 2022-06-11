@@ -2,10 +2,10 @@
 
 #PBS -N stream
 #PBS -q dssc_gpu
-#PBS -l mem=1000mb
+#PBS -l mem=500mb
 #PBS -l nodes=2:ppn=48
 
-#PBS -l walltime=00:360:00
+#PBS -l walltime=00:60:00
 
 module load gnu
 module load numactl
