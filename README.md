@@ -20,5 +20,7 @@ run_col.sh
 
 For the stream benchmark, submit the job to the cluster. 
 
+![plot](https://github.com/B23579/Stream_benchemark_and_matrices_transpose/blob/main/plot/run.png)
+
 # Reference
 (https://www.cs.virginia.edu/stream/ref.html#runrules)
