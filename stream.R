@@ -39,4 +39,4 @@ p<-ggplot(result)+
   labs(x="Nunber of thread", y= "Rate(Mb/s)", title = "STREAM-TRIAD Rate")+
   theme(plot.title = element_text(hjust = 0.5))
 p 
-
+ggsave(p, filename = "plot/stream.png")
